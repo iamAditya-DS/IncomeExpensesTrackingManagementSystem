@@ -1,0 +1,21 @@
+name: Expense Tracker CI
+
+on: [push] # This tells the robot to start every time you save code
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest # Requirement: Windows Environment
+    
+    steps:
+      - uses: actions/checkout@v4 # Robot "downloads" your code
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore
+        run: dotnet restore # Requirement: NuGet/MSBuild tooling
+
+      - name: Build
+        run: dotnet build --no-restore # This checks for code errorsS

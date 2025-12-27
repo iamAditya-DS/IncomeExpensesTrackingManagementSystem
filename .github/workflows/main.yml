@@ -17,5 +17,11 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore # Requirement: NuGet/MSBuild tooling
 
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5 # Adds the legacy NuGet.exe tool
+
+      - name: Restore NuGet Packages
+        run: nuget restore IncomeExpensesTrackingManagementSystem.sln # The reliable way for legacy apps
+      
       - name: Build
-        run: dotnet build --no-restore # This checks for code errorsS
+        run: dotnet build # This checks for code errorsS

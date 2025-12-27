@@ -14,7 +14,7 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      - name: Restore
+      - name: Restore dependencies
         run: dotnet restore # Requirement: NuGet/MSBuild tooling
 
       - name: Build

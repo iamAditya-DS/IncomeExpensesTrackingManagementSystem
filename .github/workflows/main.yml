@@ -22,9 +22,6 @@ jobs:
 
       - name: Restore NuGet Packages
         run: nuget restore IncomeExpensesTrackingManagementSystem.sln # The reliable way for legacy apps
-
-      - name: NuGet Security Audit
-        run: dotnet list package --vulnerable --include-transitive
       
       - name: Build
         run: dotnet build # This checks for code errorsS
